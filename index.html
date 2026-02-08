@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>This Page Only For You</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+@font-face {
+  font-family: 'ValentineCute';
+  src: url('Valentine Cute.ttf');
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(135deg,#fdeff9,#e8f0ff);
+  font-family:'Playfair Display',serif;
+  overflow:hidden;
+  color:#444;
+}
+
+.lock{
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#ffd6e8,#e6ddff);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:10;
+}
+
+.lock-card{
+background:white;
+padding:30px 22px;
+border-radius:30px;
+text-align:center;
+width:85%;
+max-width:320px;
+box-shadow:0 18px 40px rgba(0,0,0,0.2);
+}
+
+.lock-card h2{
+font-family:'ValentineCute', cursive;
+color:#ff6f91;
+}
+
+.lock-card .sub{
+font-size:14px;
+color:#777;
+margin-bottom:10px;
+}
+
+.lock-card input{
+width:85%;
+padding:12px;
+border-radius:15px;
+border:1px solid #ddd;
+text-align:center;
+}
+
+.lock-card button{
+margin-top:14px;
+padding:10px 26px;
+border:none;
+border-radius:20px;
+background:#ff8fab;
+color:purple;
+font-size:16px;
+}
+
+.teddy{
+font-size:38px;
+animation:bounce 2s infinite;
+}
+@keyframes bounce{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+h1{
+font-family:'ValentineCute', cursive;
+text-align:center;
+margin-top:24px;
+color:#ff6f91;
+}
+
+.card{
+background:white;
+margin:26px auto;
+padding:24px;
+border-radius:26px;
+width:85%;
+max-width:420px;
+box-shadow:0 14px 30px rgba(0,0,0,0.12);
+}
+
+.typing{
+font-size:18px;
+line-height:1.8;
+white-space:pre-line;
+font-weight:600;
+}
+
+footer{
+text-align:center;
+font-family:'ValentineCute', cursive;
+margin-top:10px;
+color:#ff6f91;
+}
+
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:gold;
+border-radius:50%;
+width:56px;
+height:56px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+
+.butterfly{
+position:absolute;
+font-size:22px;
+animation:fly 10s linear infinite;
+}
+@keyframes fly{
+0%{transform:translateY(100vh);opacity:1;}
+100%{transform:translateY(-10vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="lock" id="lock">
+  <div class="lock-card">
+    <div class="teddy">🧸</div>
+    <h2>Password Login 💗</h2>
+    <div class="sub"> ~ This cute page is waiting just for you!! 🌝🎀</div>
+    <input type="password" id="pass" placeholder="Enter the secret 💌">
+    <br>
+    <button onclick="unlock()">Unlock with Love 💕</button>
+    <div class="hint">Hint: Mera Favourite Person 🌝 ?</div>
+  </div>
+</div>
+
+<h1> ~ This Page Only For You 🐼🎀</h1>
+
+<div class="card">
+  <div id="text" class="typing"></div>
+</div>
+
+<footer>
+— Apkaa Rishuu 🌝🙏🏻 <br>
+~ I lovee yoouuhh soo muchh silly girl 😋🎀 🫂💗!!
+</footer>
+
+<div class="music-btn" onclick="toggleMusic()">🎵</div>
+
+<audio id="music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const PASSWORD="Ofcourse Main Hi Hun 😌🖐 ";
+
+function unlock(){
+if(document.getElementById("pass").value===PASSWORD){
+document.getElementById("lock").style.display="none";
+typeText();
+}else{
+alert("Galat password 😋");
+}
+}
+
+const msg=`Bolna toh bahut kuchh chahta hoon per.... 🥹
+
+~ Dil Ki Itni Saari Baatein Kaise Likhunga Iss Chote Khat Par ? 😭💌
+
+" Dil Par Toota Hain Yeh Kaisa Keher Tumko Paakar Khone Ka Hain Dar !! 🌝🧿❤️
+
+Pyar Ka Yeh Dhai Aakhar Kaise Likhoge Iss Chotte Khat Par ?? ✍🏻💌
+
+( Pal Pal Pal Pal Har Pal Har Pal Kaise Katega Pal Har Pal Har Pal??....... 🥹🎀🫂🫶🏻🐼🧿🩷`;
+
+let i=0;
+function typeText(){
+if(i<msg.length){
+document.getElementById("text").innerHTML+=msg.charAt(i);
+i++;
+setTimeout(typeText,40);
+}
+}
+
+function toggleMusic(){
+const m=document.getElementById("music");
+if(m.paused){m.play();}
+else{m.pause();}
+}
+
+for(let i=0;i<18;i++){
+let b=document.createElement("div");
+b.className="butterfly";
+b.innerHTML="🦋";
+b.style.left=Math.random()*100+"vw";
+b.style.animationDelay=Math.random()*6+"s";
+document.body.appendChild(b);
+}
+</script>
+
+</body>
+</html>
